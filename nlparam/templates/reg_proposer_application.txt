@@ -1,0 +1,22 @@
+Here is a corpus of user queries each associated with a score. The queries are sorted from the lowest to the highest score.
+
+{samples_in_prompt_w_scores}
+
+{goal}
+
+We want to understand what kind of queries achieve a higher score, so please suggest descriptions about the queries that are more likely to achieve higher scores.
+Please suggest me at most {num_descriptions_per_prompt} descriptions, one in a line, starting with "-" and surrounded by quotes "". Each of them needs to be a predicate about a query followed by an explanation and an example that satisfies the predicate, for example:
+- "the user wants to request for email or message composition; specifically, the query involves a request for drafting an email or message with specific content and intent. For example, 'write an email to terminix llc with a proposal for cooperation...'."
+- "the user wants to request technical code/script writing; specifically, the query demands the creation or modification of a script or code. For example, 'create a dockerfile based on this script.'"
+
+Do not output anything else. Please do not mention score in your example. (Note that the examples might not be goal related, and your response should be both formatted correct as above and related to the goal.)
+
+{example_description_in_prompt}
+
+Please generate the response based on the given datapoints as much as possible. We want the descriptions to be relatively objective and can be validated easily, e.g. "is surprising" means different things for different people, so we want to avoid such descriptions. It should also be a predicate on a single query (rather than a statement about a comparison); for example, instead of saying "uses more polite language", the generation should be "uses polite language". Sometimes KeyInfo is provided to help you make come up with better responses (though it might also be unavailable). 
+
+Again, here's the goal. 
+{goal}
+
+Your responses are:
+- "

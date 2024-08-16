@@ -1,0 +1,20 @@
+Here is a corpus of text samples each associated with a score. The text samples are sorted from the lowest to the highest score.
+
+{samples_in_prompt_w_scores}
+
+{goal}
+
+We want to understand what kind of text samples achieve a higher score and appear later in the prompt, so please suggest descriptions about the text samples that are more likely to achieve higher scores.
+Please suggest me at most {num_descriptions_per_prompt} descriptions, one in a line, starting with "-" and surrounded by quotes "". Each of them needs to be a predicate about a text, for example:
+- "uses double negation"
+- "has a conservative stance"
+
+Do not output anything else. Please do not mention score in your example. (Note that the examples might not be goal related, and your response should be both formatted correct as above and related to the goal.)
+
+{example_description_in_prompt}
+
+Again, here's the goal. 
+{goal}
+
+Your responses are:
+- "

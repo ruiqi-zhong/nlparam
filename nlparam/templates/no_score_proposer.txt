@@ -1,0 +1,22 @@
+Here is a corpus of text samples.
+
+{samples_in_prompt}
+
+{goal}
+
+We want to come up with some features (expressed in natural language predicate) such that they can be used in some following task (e.g., clustering or regression, etc). 
+Please suggest me at most {num_descriptions_per_prompt} descriptions, one in a line, starting with "-" and surrounded by quotes "". Each of them needs to be a predicate about a text followed by an explanation and an example that satisfies the predicate, for example:
+- "uses double negation; specifically, there is a sentence in the text that uses negation twice. For example, 'the pilot did not never had an accident'"
+- "has a conservative stance; specifically, the overall text exhibits a conservative political stance (e.g. pro-life, deregulation, etc). For example, 'Fetus is sentient so we should not abort.'"
+
+Do not output anything else. (Note that the examples might not be goal related, and your response should be both formatted correct as above and related to the goal.)
+
+{example_description_in_prompt}
+
+Please generate the response based on the given datapoints as much as possible. We want the descriptions to be relatively objective and can be validated easily, e.g. "is surprising" means different things for different people, so we want to avoid such descriptions. It should also be a predicate on a single text (rather than a statement about a comparison); for example, instead of saying "uses more polite language", the generation should be "uses polite language". Sometimes KeyInfo is provided to help you make come up with better responses (though it might also be unavailable). 
+
+Again, here's the goal. 
+{goal}
+
+Your responses are:
+- "
