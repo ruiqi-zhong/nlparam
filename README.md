@@ -2,6 +2,9 @@
 
 Ruiqi Zhong, Heng Wang, Dan Klein, Jacob Steinhardt
 
+
+![time-series-result](applications/wildchat.gif)
+
 Feel free to reach out to ruiqi-zhong@berkeley.edu if you have any question about the paper!
 
 # Installation
