@@ -1,4 +1,4 @@
-# Augmenting Statistical Models with Natural Language Parameters
+# Explaining Datasets in Words: Statistical Models with Natural Language Parameters 
 
 Ruiqi Zhong, Heng Wang, Dan Klein, Jacob Steinhardt
 
