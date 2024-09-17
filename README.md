@@ -66,7 +66,7 @@ The logic for model evaluation is implemented in ```nlparam/models/abstract_mode
 
 Run ```python3 nlparam/run_experiment.py``` to reproduce the performance of our full system from our paper. 
 
-Use the ```--random_update``` and ```--one_hot_embedding``` flag to investigate the performance of not proposing predicates based on continouous relaxation and not using learned embeddings to approximate the denotation. The results will be saved in ```results/```.
+Use the ```--random_update``` and ```--one_hot_embedding``` flag to investigate the performance of not proposing predicates based on continuous relaxation and not using learned embeddings to approximate the denotation. The results will be saved in ```results/```.
 
 In the paper, we used ```gpt-3.5-turbo``` to evaluate the similarity between two predicates, but this repo defaults to ```gpt-4o```, which is better at similarity judgement. You can change the default of model choice by modifying ```get_similarity_scores``` in ```eval_utils.py```.
 
