@@ -17,6 +17,14 @@ pip install -e .
 
 ## Running Statistical Models with Natural Language Parameters
 
+### Quick start
+
+Run the models with the following imports:
+
+```from nlparam import run_clustering, run_time_series, run_classification``` 
+
+You can find the examples in the ```demo/``` folder.
+
 ### General
 
 Our model takes in the observed text samples and the hyperparameters. It returns a ```ModelOuput```, as defined in ```nlparam/models/abstract_model.py```. The core output is ```ModelOutput.predicate2text2matching```: it is a dictionary, where the keys are all the learned natural language predicates; each predicate maps to another dictionary, which maps from a text sample x to 0/1 depending on whether x satisfies the predicate. 

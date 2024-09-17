@@ -1,6 +1,7 @@
-from nlparam import TimeSeriesModel, ModelOutput, DATA_DIR, continuous_arr
+from nlparam import run_time_series, DATA_DIR
 import json
 from typing import List, Dict
+
 
 if __name__ == '__main__':
 
@@ -10,30 +11,19 @@ if __name__ == '__main__':
     with open(dataset_path, "r") as f:
         dataset = json.load(f)
     texts_by_time: List[str] = dataset['texts_by_time']
+
     K: int = dataset['K']
     goal: str = dataset['goal']
 
-    # model fitting
-    model = TimeSeriesModel(
-        texts_by_time=texts_by_time,
-        K=K,
-        goal=goal,
-        dummy=dataset_name == "dummy",
-    )
-    model_output: ModelOutput = model.fit()
+    time_series_result = run_time_series(texts_by_time, K, goal, dataset_name == "dummy")
+    predicates: List[str] = time_series_result["predicates"]
 
-    # displaying the results
-    learned_predicates: List[str] = list(model_output.predicate2text2matching.keys())
-    predicate2text2matching: Dict[str, Dict[str, int]] = model_output.predicate2text2matching
-
-    for predicate, text2matching in predicate2text2matching.items():
-        print(f"Predicate: {predicate}")
-        matching_texts = [text for text, matching in text2matching.items() if matching]
+    for i, predicate in enumerate(predicates):
+        print(f"{predicate}: {time_series_result['curves'][i]}")
+        matching_texts = [text for text, matching in time_series_result["predicate2text2matching"][predicate].items() if matching]
         print(f"Number of matching texts: {len(matching_texts)}")
         print(f"Example matching texts: {matching_texts[:5]}")
-        features_by_time = [predicate2text2matching[predicate][text] for text in texts_by_time]
-        curve = continuous_arr(features_by_time)
-        # the curve of how much text matches the predicate over time
+        curve = time_series_result["curves"][i]
         print(f"Curve: {curve}")
 
     
